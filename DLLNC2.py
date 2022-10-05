@@ -34,8 +34,8 @@ class DLLNC:
             self.tail = self.tail._prev
             hapus._prev = None
             self.tail._next = None
+            print("# Data",hapus._element,"Terhapus #")
             del hapus
-        print("# Data",hapus,"Terhapus #")
         self.size = self.size - 1
     def printAllDescending(self):
         bantu = self.tail
@@ -44,23 +44,24 @@ class DLLNC:
             print("="*30)
             print("Nama:",bantu._element)
             print("ipk:",bantu._ipk)
+            bantu = bantu._prev
     def rataIpk(self):
         ipk = 0
         size = 0
         helper = self.tail
         while helper != None:
             ipk = ipk + helper._ipk
-            helper = helper._next
+            helper = helper._prev
             size += 1
         print("===== Rata-Rata IPK =====")
-        print("Rata - Rata :",ipk/size)
+        print("Rata - Rata :",round(ipk/size,2))
 
-
-DLLNC.addElementTail('Shalom',3.9)
-DLLNC.addElementTail('Nabilla',3.8)
-DLLNC.addElementTail('Kurniadi',3.7)
-DLLNC.addElementTail('Harris',3.6)
-DLLNC.printAllDescending()
-DLLNC.deleteLast()
-DLLNC.printAllDescending()
-DLLNC.rataIpk()
+DLLNC1 = DLLNC()
+DLLNC1.addElementTail('Shalom',3.9)
+DLLNC1.addElementTail('Nabilla',3.8)
+DLLNC1.addElementTail('Kurniadi',3.7)
+DLLNC1.addElementTail('Harris',3.6)
+DLLNC1.printAllDescending()
+DLLNC1.deleteLast()
+DLLNC1.printAllDescending()
+DLLNC1.rataIpk()
